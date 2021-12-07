@@ -19,6 +19,10 @@ Loom
 - [Project Board](https://github.com/DyerHL/cross-stitch-catalogue/projects/1)
 - [ERD](https://dbdiagram.io/d/61a583af8c901501c0d86158)
 
+## Entity Relationship Diagram
+![image](https://user-images.githubusercontent.com/86806913/144949749-3e5eae4f-e06b-467e-9c24-3248cc024590.png)
+
+
 ## Author
 [Halie Dyer - Github](https://github.com/DyerHL)
 

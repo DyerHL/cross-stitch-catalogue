@@ -1,0 +1,65 @@
+{
+  "patterns" : {
+    "-P123" : {
+      "name" : "Summer Flight",
+      "uid" : "1234",
+      "patternfirebaseKey" : "-P123",
+      "imageURL" : "https://static1.dmc.com/cache/p/a/pat16104_880x1322.jpg",
+      "patternURL" : "https://www.dmc.com/us/summer-flight-pattern-9010970.html#null",
+      "status" : "Complete",
+      "public" : "true"
+    },
+    "-P456" : {
+      "name" : "Christmas Day Wreath",
+      "uid" : "1234",
+      "patternfirebaseKey" : "-P456",
+      "imageURL" : "https://static1.dmc.com/cache/p/a/pat16345_880x1322.jpg",
+      "patternURL" : "https://www.dmc.com/us/christmas-day-wreath-pattern-9011202.html",
+      "status" : "Not Started",
+      "public" : "true"
+    },
+    "-P789" : {
+      "name" : "Orbiting Saturn",
+      "uid" : "1234",
+      "patternfirebaseKey" : "-P789",
+      "imageURL" : "https://static1.dmc.com/cache/p/a/pat0753_01pat0753_440x661.jpg",
+      "patternURL" : "https://www.dmc.com/us/orbiting-saturn-pattern-9006042.html",
+      "status" : "In Progress",
+      "public" : "true"
+    }
+  },
+  "threads" : {
+    "-T123" : {
+      "colorName" : "S3607",
+      "firebaseKey" : "-T123",
+      "numberNeeded" : "3",
+      "own" : "true",
+      "patternfirebaseKey" : "-P123",
+      "hexcode" : "1234"
+    },
+    "-T456" : {
+      "colorName" : "3816",
+      "firebaseKey" : "-T456",
+      "numberNeeded" : "2",
+      "own" : "true",
+      "patternfirebaseKey" : "-P123",
+      "hexcode" : "1234"
+    },
+    "-T789" : {
+      "colorName" : "948",
+      "firebaseKey" : "-T789",
+      "numberNeeded" : "1",
+      "own" : "true",
+      "patternfirebaseKey" : "-P123",
+      "hexcode" : "1234"
+    },
+    "-T741" : {
+      "colorName" : "168",
+      "firebaseKey" : "-T741",
+      "numberNeeded" : "2",
+      "own" : "true",
+      "patternfirebaseKey" : "-P789",
+      "hexcode" : "1234"
+    }
+  }
+}

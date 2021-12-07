@@ -15,8 +15,8 @@ Live Site
 Loom
 
 ## Relevant Links
-- Wireframe
-- Project Board
+- [Wireframe](https://www.figma.com/file/wZXfT0LLw82RHrlMiVWPPV/Cross-stitch-catalogue?node-id=0%3A1)
+- [Project Board](https://github.com/DyerHL/cross-stitch-catalogue/projects/1)
 - [ERD](https://dbdiagram.io/d/61a583af8c901501c0d86158)
 
 ## Author

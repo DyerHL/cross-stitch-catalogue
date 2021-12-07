@@ -20,4 +20,5 @@ Loom
 - [ERD](https://dbdiagram.io/d/61a583af8c901501c0d86158)
 
 ## Author
-link to github and personal site
+[Halie Dyer - Github](https://github.com/DyerHL)
+[Halie Dyer - Porfolio](https://halie-dyer-portfolio.netlify.app/)

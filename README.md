@@ -21,4 +21,5 @@ Loom
 
 ## Author
 [Halie Dyer - Github](https://github.com/DyerHL)
+
 [Halie Dyer - Porfolio](https://halie-dyer-portfolio.netlify.app/)

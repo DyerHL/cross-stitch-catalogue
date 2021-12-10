@@ -6,7 +6,7 @@ import 'bootstrap/js/src/collapse';
 
 export default function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           Logo
@@ -32,9 +32,6 @@ export default function Navbar() {
             </li>
             <li className="nav-item">
               <Link to="/shoppinglist">Shopping List</Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/patterndetails">PatternDetails</Link>
             </li>
             <li className="nav-item">
               <button onClick={signOutUser} type="button">

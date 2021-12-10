@@ -1,7 +1,7 @@
 import axios from 'axios';
 import firebaseConfig from '../apiKeys';
 
-const dbUrl = firebaseConfig.dabaseUrl;
+const dbUrl = firebaseConfig.databaseURL;
 
 const getPatterns = (uid) => new Promise((resolve, reject) => {
   axios
@@ -14,10 +14,10 @@ const createPattern = (obj, uid) => new Promise((resolve, reject) => {
   axios
     .post(`${dbUrl}/patterns.json`, obj)
     .then((response) => {
-      const patternFirebaseKey = response.data.name;
+      const patternfirebaseKey = response.data.name;
       axios
-        .patch(`${dbUrl}/patterns/${patternFirebaseKey}`, {
-          patternFirebaseKey,
+        .patch(`${dbUrl}/patterns/${patternfirebaseKey}.json`, {
+          patternfirebaseKey,
         })
         .then(() => {
           getPatterns(uid).then(resolve);
@@ -26,9 +26,9 @@ const createPattern = (obj, uid) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const updatePattern = (patternFirebaseKey, updateObj, uid) => new Promise((resolve, reject) => {
+const updatePattern = (patternfirebaseKey, updateObj, uid) => new Promise((resolve, reject) => {
   axios
-    .patch(`${dbUrl}/patterns/${patternFirebaseKey}.json`, updateObj)
+    .patch(`${dbUrl}/patterns/${patternfirebaseKey}.json`, updateObj)
     .then(() => getPatterns(uid).then(resolve))
     .catch(reject);
 });
@@ -42,9 +42,9 @@ const deletePattern = (patternFirebaseKey, uid) => new Promise((resolve, reject)
     .catch(reject);
 });
 
-const getSinglePattern = (patternFirebaseKey) => new Promise((resolve, reject) => {
+const getSinglePattern = (patternfirebaseKey) => new Promise((resolve, reject) => {
   axios
-    .get(`${dbUrl}/patterns/${patternFirebaseKey}.json`)
+    .get(`${dbUrl}/patterns/${patternfirebaseKey}.json`)
     .then((response) => {
       resolve(response.data);
     })

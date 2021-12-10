@@ -30,6 +30,7 @@
   },
   "threads" : {
     "-T123" : {
+      "uid" : "1234",
       "colorName" : "S3607",
       "firebaseKey" : "-T123",
       "numberNeeded" : "3",
@@ -38,6 +39,7 @@
       "hexcode" : "1234"
     },
     "-T456" : {
+      "uid" : "1234",
       "colorName" : "3816",
       "firebaseKey" : "-T456",
       "numberNeeded" : "2",
@@ -46,6 +48,7 @@
       "hexcode" : "1234"
     },
     "-T789" : {
+      "uid" : "1234",
       "colorName" : "948",
       "firebaseKey" : "-T789",
       "numberNeeded" : "1",
@@ -54,6 +57,7 @@
       "hexcode" : "1234"
     },
     "-T741" : {
+      "uid" : "1234",
       "colorName" : "168",
       "firebaseKey" : "-T741",
       "numberNeeded" : "2",

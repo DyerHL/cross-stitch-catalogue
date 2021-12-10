@@ -1,24 +1,33 @@
 import axios from 'axios';
 import firebaseConfig from '../apiKeys';
 
-const dbUrl = firebaseConfig.dabaseUrl;
+const dbUrl = firebaseConfig.databaseURL;
 
 const getThreads = () => new Promise((resolve, reject) => {
   axios
-    .get(`${dbUrl}/threads.json`)
+    .get(`${dbUrl}/threads.json?`)
     .then((response) => resolve(Object.values(response.data)))
     .catch(reject);
 });
 
-const createThread = (obj) => new Promise((resolve, reject) => {
+const getThreadsByPattern = (patternfirebaseKey) => new Promise((resolve, reject) => {
+  axios
+    .get(
+      `${dbUrl}/threads.json?orderBy="patternfirebaseKey"&equalTo="${patternfirebaseKey}"`,
+    )
+    .then((response) => resolve(Object.values(response.data)))
+    .catch(reject);
+});
+
+const createThread = (obj, patternfirebaseKey) => new Promise((resolve, reject) => {
   axios
     .post(`${dbUrl}/threads.json`, obj)
     .then((response) => {
       const firebaseKey = response.data.name;
       axios
-        .patch(`${dbUrl}/threads/${firebaseKey}`, { firebaseKey })
+        .patch(`${dbUrl}/threads/${firebaseKey}.json`, { firebaseKey })
         .then(() => {
-          getThreads().then(resolve);
+          getThreadsByPattern(patternfirebaseKey).then(resolve);
         });
     })
     .catch(reject);
@@ -63,4 +72,5 @@ export {
   deleteThread,
   getSingleThread,
   getNeededThreads,
+  getThreadsByPattern,
 };

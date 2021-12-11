@@ -16,7 +16,7 @@ export default function PatternDetailsView({ uid }) {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [key]);
 
   return (
     <div>

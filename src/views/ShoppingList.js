@@ -11,11 +11,16 @@ export default function ShoppingList({ uid }) {
   }, []);
 
   return (
-    <div>
-      {threads.map((card) => (
-        <ShoppingListCard key={card.firebaseKey} card={card} />
-      ))}
-    </div>
+    <>
+      <br />
+      <br />
+      <br />
+      <div>
+        {threads.map((card) => (
+          <ShoppingListCard key={card.firebaseKey} card={card} />
+        ))}
+      </div>
+    </>
   );
 }
 

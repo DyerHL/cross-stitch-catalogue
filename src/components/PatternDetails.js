@@ -71,13 +71,15 @@ export default function PatternDetails({ patternCard, uid }) {
               <ThreadCard
                 key={thread.firebaseKey}
                 setThreads={setThreads}
-                card={thread}
+                thread={thread}
               />
             ))}
           </div>
           <div>
-            <button type="button">+</button>
-            <div>add form</div>
+            <AddThreadForm
+              uid={uid}
+              patternfirebaseKey={patternCard.patternfirebaseKey}
+            />
           </div>
         </div>
         <div>
@@ -86,10 +88,6 @@ export default function PatternDetails({ patternCard, uid }) {
           </button>
         </div>
       </div>
-      <AddThreadForm
-        uid={uid}
-        patternfirebaseKey={patternCard.patternfirebaseKey}
-      />
     </>
   );
 }

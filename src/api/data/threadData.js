@@ -58,15 +58,28 @@ const getSingleThread = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const getThreadByOwn = () => new Promise((resolve, reject) => {
+const getThreadsByOwn = (value) => new Promise((resolve, reject) => {
   axios
-    .get(`${dbUrl}/threads.json?orderBy="own"&equalTo="true"`)
-    .then((response) => resolve(Object.values(response.data)))
+    .get(`${dbUrl}/threads.json?orderBy="own"&equalTo=${value}`)
+    .then((response) => {
+      if (response.data) {
+        resolve(Object.values(response.data));
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
+});
+
+const updateOwn = (obj) => new Promise((resolve, reject) => {
+  axios
+    .patch(`${dbUrl}/threads/${obj.firebaseKey}.json`, obj)
+    .then(() => getThreadsByPattern(obj.patternfirebaseKey).then(resolve))
     .catch(reject);
 });
 
 const getNeededThreads = (uid) => new Promise((resolve, reject) => {
-  getThreadByOwn()
+  getThreadsByOwn(false)
     .then((allThreads) => {
       const filtered = allThreads.filter((threads) => threads.uid === uid);
       resolve(filtered);
@@ -80,7 +93,8 @@ export {
   updateThread,
   deleteThread,
   getSingleThread,
-  getThreadByOwn,
+  getThreadsByOwn,
   getThreadsByPattern,
   getNeededThreads,
+  updateOwn,
 };

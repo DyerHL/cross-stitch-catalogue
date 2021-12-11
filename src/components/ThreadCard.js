@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { deleteThread } from '../api/data/threadData';
 
 export default function ThreadCard({ card }) {
@@ -21,9 +21,13 @@ export default function ThreadCard({ card }) {
         <button type="button" href="#" className="btn btn-light">
           Own
         </button>
-        <button type="button" href="#" className="btn btn-light">
+        <Link
+          type="button"
+          to={`/editthread/${card.firebaseKey}`}
+          className="btn btn-light"
+        >
           Edit
-        </button>
+        </Link>
         <button
           onClick={() => handleDelete('delete')}
           type="button"

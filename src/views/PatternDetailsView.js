@@ -20,7 +20,7 @@ export default function PatternDetailsView({ uid }) {
 
   return (
     <div>
-      <h1>Pattern Details for {patternCard.name}</h1>
+      <br />
       <PatternDetails patternCard={patternCard} uid={uid} />
     </div>
   );

@@ -8,7 +8,13 @@ export default function Home({ uid }) {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    getPatterns(uid).then(setCards);
+    let isMounted = true;
+    if (isMounted) {
+      getPatterns(uid).then(setCards);
+    }
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   return (
@@ -16,7 +22,7 @@ export default function Home({ uid }) {
       <br />
       <br />
       <br />
-      <HomeFilterBar />
+      <HomeFilterBar uid={uid} />
       <div className="home-patterns">
         {cards.map((card) => (
           <HomePatternCard

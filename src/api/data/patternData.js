@@ -51,10 +51,22 @@ const getSinglePattern = (patternfirebaseKey) => new Promise((resolve, reject) =
     .catch(reject);
 });
 
+const filterPattern = (status, uid) => new Promise((resolve, reject) => {
+  getPatterns(uid)
+    .then((userCards) => {
+      const filtered = userCards.filter(
+        (patternCard) => patternCard.status === status,
+      );
+      resolve(filtered);
+    })
+    .catch(reject);
+});
+
 export {
   getPatterns,
   createPattern,
   updatePattern,
   deletePattern,
   getSinglePattern,
+  filterPattern,
 };

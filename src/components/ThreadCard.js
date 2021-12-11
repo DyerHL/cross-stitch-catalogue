@@ -1,7 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
+import { deleteThread } from '../api/data/threadData';
 
 export default function ThreadCard({ card }) {
+  const history = useHistory();
+
+  const handleDelete = (method) => {
+    if (method === 'delete') {
+      deleteThread(card.firebaseKey).then(() => {
+        history.push('/');
+      });
+    }
+  };
   return (
     <div className="card">
       <div className="card-body">
@@ -13,7 +24,12 @@ export default function ThreadCard({ card }) {
         <button type="button" href="#" className="btn btn-light">
           Edit
         </button>
-        <button type="button" href="#" className="btn btn-light">
+        <button
+          onClick={() => handleDelete('delete')}
+          type="button"
+          href="#"
+          className="btn btn-light"
+        >
           Delete
         </button>
       </div>

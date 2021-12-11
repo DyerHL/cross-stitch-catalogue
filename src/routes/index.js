@@ -22,7 +22,11 @@ export default function index({ uid }) {
           path="/patterndetails/:key"
           component={() => <PatternDetailsView uid={uid} />}
         />
-        <Route exact path="/shoppinglist" component={ShoppingList} />
+        <Route
+          exact
+          path="/shoppinglist"
+          component={() => <ShoppingList uid={uid} />}
+        />
         <Route
           exact
           path="/edit/:key"

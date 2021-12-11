@@ -6,6 +6,7 @@ import PatternDetailsView from '../views/PatternDetailsView';
 import ShoppingList from '../views/ShoppingList';
 import Home from '../views/Home';
 import EditPattern from '../views/EditPattern';
+import EditThread from '../views/EditThread';
 
 export default function index({ uid }) {
   return (
@@ -31,6 +32,11 @@ export default function index({ uid }) {
           exact
           path="/edit/:key"
           component={() => <EditPattern uid={uid} />}
+        />
+        <Route
+          exact
+          path="/editthread/:threadkey"
+          component={() => <EditThread uid={uid} />}
         />
       </Switch>
     </>

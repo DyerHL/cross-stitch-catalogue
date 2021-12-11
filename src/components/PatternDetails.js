@@ -27,7 +27,7 @@ export default function PatternDetails({ patternCard, uid }) {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [patternCard]);
 
   return (
     <>
@@ -86,7 +86,10 @@ export default function PatternDetails({ patternCard, uid }) {
           </button>
         </div>
       </div>
-      <AddThreadForm uid={uid} />
+      <AddThreadForm
+        uid={uid}
+        patternfirebaseKey={patternCard.patternfirebaseKey}
+      />
     </>
   );
 }

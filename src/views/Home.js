@@ -22,7 +22,7 @@ export default function Home({ uid }) {
       <br />
       <br />
       <br />
-      <HomeFilterBar uid={uid} />
+      <HomeFilterBar uid={uid} setCards={setCards} />
       <div className="home-patterns">
         {cards.map((card) => (
           <HomePatternCard

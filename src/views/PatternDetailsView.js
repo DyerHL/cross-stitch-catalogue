@@ -19,7 +19,7 @@ export default function PatternDetailsView({ uid }) {
   }, [key]);
 
   return (
-    <div>
+    <div className="details-view">
       <br />
       <PatternDetails patternCard={patternCard} uid={uid} />
     </div>

@@ -17,39 +17,41 @@ export default function ThreadCard({ thread, setThreads }) {
   };
 
   return (
-    <div className="card">
-      <div className="card-body">
+    <div className="thread-card">
+      <div className="thread-card-body">
         <div>Color: {thread.colorName}</div>
         <div>{thread.numberNeeded} skeins needed</div>
-        {thread.own ? (
-          <button type="button" className="btn btn-light" disabled>
-            <i className="fas fa-star" />
-          </button>
-        ) : (
-          <button
+        <div className="thread-buttons-container">
+          {thread.own ? (
+            <button type="button" className="btn btn-light" disabled>
+              <i className="fas fa-star" />
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={() => handleClick('own')}
+              className="btn btn-light"
+            >
+              {' '}
+              <i className="far fa-star" />
+            </button>
+          )}
+          <Link
             type="button"
-            onClick={() => handleClick('own')}
+            to={`/editthread/${thread.firebaseKey}`}
             className="btn btn-light"
           >
-            {' '}
-            <i className="far fa-star" />
+            Edit
+          </Link>
+          <button
+            onClick={() => handleClick('delete')}
+            type="button"
+            href="#"
+            className="btn btn-light"
+          >
+            Delete
           </button>
-        )}
-        <Link
-          type="button"
-          to={`/editthread/${thread.firebaseKey}`}
-          className="btn btn-light"
-        >
-          Edit
-        </Link>
-        <button
-          onClick={() => handleClick('delete')}
-          type="button"
-          href="#"
-          className="btn btn-light"
-        >
-          Delete
-        </button>
+        </div>
       </div>
     </div>
   );

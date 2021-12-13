@@ -33,36 +33,31 @@ export default function PatternDetails({ patternCard, uid }) {
     <>
       <br />
       <br />
-      <div className="card">
-        <div>
-          <div className="pat-det-img-det">
-            <div>
-              <img
-                src={patternCard.imageURL}
-                className="img-fluid"
-                alt="..."
-                style={{ width: '18rem', margin: '.5rem' }}
-              />
-            </div>
-            <div>
-              <h5 className="card-title">{patternCard.name}</h5>
-              <a
-                rel="noreferrer"
-                target="_blank"
-                href={patternCard.patternURL}
-                type="button"
-              >
-                Take me to the Pattern!
-              </a>
-              <Link
-                to={`/edit/${patternCard.patternfirebaseKey}`}
-                type="button"
-              >
-                {' '}
-                Edit Pattern Details{' '}
-              </Link>
-              <div>Pattern Status: {patternCard.status}</div>
-            </div>
+      <div className="card details">
+        <div className="pattern-details">
+          <div>
+            <img
+              src={patternCard.imageURL}
+              className="img-fluid"
+              alt="..."
+              style={{ width: '18rem', margin: '.5rem' }}
+            />
+          </div>
+          <div>
+            <h5 className="card-title">{patternCard.name}</h5>
+            <a
+              rel="noreferrer"
+              target="_blank"
+              href={patternCard.patternURL}
+              type="button"
+            >
+              Take me to the Pattern!
+            </a>
+            <Link to={`/edit/${patternCard.patternfirebaseKey}`} type="button">
+              {' '}
+              Edit Pattern Details{' '}
+            </Link>
+            <div>Pattern Status: {patternCard.status}</div>
           </div>
         </div>
         <div>
@@ -75,14 +70,17 @@ export default function PatternDetails({ patternCard, uid }) {
               />
             ))}
           </div>
-          <div>
-            <AddThreadForm
-              uid={uid}
-              patternfirebaseKey={patternCard.patternfirebaseKey}
-            />
+          <div className="thread-form-container">
+            <div>
+              <AddThreadForm
+                uid={uid}
+                patternfirebaseKey={patternCard.patternfirebaseKey}
+                setThreads={setThreads}
+              />
+            </div>
           </div>
         </div>
-        <div>
+        <div className="delete-pattern-div">
           <button type="button" onClick={() => handleDelete('delete')}>
             Delete Pattern from Catalogue
           </button>

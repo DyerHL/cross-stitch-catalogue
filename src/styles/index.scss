@@ -1,6 +1,55 @@
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
 @import 'globals';
 
+// .navbar{
+//   margin: 20px;
+// }
+
 body {
   background-color: $favColor !important;
+}
+
+.details-view {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+.details {
+  max-width: 1000px;
+}
+.threads-list {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: greenyellow;
+}
+.pattern-details {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: goldenrod;
+}
+
+.thread-card {
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+}
+.thread-card-body {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.thread-form-container {
+  margin: 10px;
+  padding: .5rem;
+}
+.delete-pattern-div {
+  display: flex;
+  justify-content: center;
+}
+.thread-buttons-container {
+  position: absolute;
+  right: 10px;
 }

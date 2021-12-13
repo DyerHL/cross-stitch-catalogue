@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { createThread, updateThread } from '../api/data/threadData';
+import {
+  createThread,
+  getThreadsByPattern,
+  updateThread,
+} from '../api/data/threadData';
 
 const initialState = {
   colorName: '',
@@ -9,7 +13,12 @@ const initialState = {
   own: false,
 };
 
-export default function AddThreadForm({ obj, uid, patternfirebaseKey }) {
+export default function AddThreadForm({
+  obj,
+  uid,
+  patternfirebaseKey,
+  setThreads,
+}) {
   const [formInput, setFormInput] = useState(initialState);
   const history = useHistory();
 
@@ -45,7 +54,7 @@ export default function AddThreadForm({ obj, uid, patternfirebaseKey }) {
     } else {
       createThread({ ...formInput, patternfirebaseKey, uid }).then(() => {
         resetForm();
-        history.push('/');
+        getThreadsByPattern(patternfirebaseKey).then(setThreads);
       });
     }
   };
@@ -82,6 +91,7 @@ AddThreadForm.propTypes = {
   patternfirebaseKey: PropTypes.string.isRequired,
   obj: PropTypes.shape(PropTypes.obj),
   uid: PropTypes.string.isRequired,
+  setThreads: PropTypes.func.isRequired,
 };
 
 AddThreadForm.defaultProps = {

@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 import PatternDetails from '../components/PatternDetails';
 import { getSinglePattern } from '../api/data/patternData';
 
-export default function PatternDetailsView({ uid }) {
-  const [patternCard, setPatternCard] = useState({});
+export default function PatternDetailsView({
+  uid,
+  patternCard,
+  setPatternCard,
+}) {
   const { key } = useParams();
 
   useEffect(() => {
@@ -27,5 +30,7 @@ export default function PatternDetailsView({ uid }) {
 }
 
 PatternDetailsView.propTypes = {
+  patternCard: PropTypes.shape(PropTypes.obj).isRequired,
+  setPatternCard: PropTypes.func.isRequired,
   uid: PropTypes.string.isRequired,
 };

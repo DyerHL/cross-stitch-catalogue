@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import AddPattern from '../views/AddPattern';
@@ -9,7 +9,6 @@ import EditPattern from '../views/EditPattern';
 import EditThread from '../views/EditThread';
 
 export default function index({ uid }) {
-  const [patternCard, setPatternCard] = useState({});
   return (
     <>
       <Switch>
@@ -17,20 +16,12 @@ export default function index({ uid }) {
         <Route
           exact
           path="/addpattern"
-          component={() => (
-            <AddPattern uid={uid} setPatternCard={setPatternCard} />
-          )}
+          component={() => <AddPattern uid={uid} />}
         />
         <Route
           exact
           path="/patterndetails/:key"
-          component={() => (
-            <PatternDetailsView
-              uid={uid}
-              patternCard={patternCard}
-              setPatternCard={setPatternCard}
-            />
-          )}
+          component={() => <PatternDetailsView uid={uid} />}
         />
         <Route
           exact

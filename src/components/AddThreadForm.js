@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
   createThread,
@@ -20,7 +20,7 @@ export default function AddThreadForm({
   setThreads,
 }) {
   const [formInput, setFormInput] = useState(initialState);
-  // const history = useHistory();
+  const history = useHistory();
 
   useEffect(() => {
     if (obj.firebaseKey) {
@@ -49,7 +49,7 @@ export default function AddThreadForm({
     if (obj.firebaseKey) {
       updateThread(obj.firebaseKey, formInput).then(() => {
         resetForm();
-        getThreadsByPattern(obj.patternfirebaseKey).then(setThreads);
+        history.goBack();
       });
     } else {
       createThread({ ...formInput, patternfirebaseKey, uid }).then(() => {

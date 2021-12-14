@@ -79,6 +79,7 @@ export default function PatternDetails({ patternCard, uid }) {
             <AddThreadForm
               uid={uid}
               patternfirebaseKey={patternCard.patternfirebaseKey}
+              setThreads={setThreads}
             />
           </div>
         </div>

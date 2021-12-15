@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { getPatternName } from '../api/data/patternData';
 
 export default function ShoppingListCard({ card }) {
+  const [name, setName] = useState();
+
+  useEffect(() => {
+    let isMounted = true;
+    if (isMounted) {
+      getPatternName(card.patternfirebaseKey).then(setName);
+    }
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   return (
     <div className="card">
-      <div className="card-body">
+      <div className="card-body" name={name}>
         <div>Color Name: {card.colorName}</div>
         <div>#{card.numberNeeded} Needed</div>
-        <div>{card.projectName}</div>
+        <div>Pattern: {name}</div>
       </div>
     </div>
   );

@@ -1,15 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, useHistory } from 'react-router-dom';
-import { deleteThread, updateOwn } from '../api/data/threadData';
+import { Link } from 'react-router-dom';
+import {
+  deleteThread,
+  getThreadsByPattern,
+  updateOwn,
+} from '../api/data/threadData';
 
-export default function ThreadCard({ thread, setThreads }) {
-  const history = useHistory();
-
+export default function ThreadCard({ thread, setThreads, patternfirebaseKey }) {
   const handleClick = (method) => {
     if (method === 'delete') {
       deleteThread(thread.firebaseKey).then(() => {
-        history.push('/');
+        getThreadsByPattern(patternfirebaseKey).then(setThreads);
       });
     } else {
       updateOwn({ ...thread, own: true }).then(setThreads);
@@ -57,5 +59,6 @@ export default function ThreadCard({ thread, setThreads }) {
 
 ThreadCard.propTypes = {
   thread: PropTypes.shape(PropTypes.obj).isRequired,
+  patternfirebaseKey: PropTypes.string.isRequired,
   setThreads: PropTypes.func.isRequired,
 };

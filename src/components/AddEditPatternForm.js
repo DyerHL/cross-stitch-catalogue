@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import {
-  createPattern,
-  getSinglePattern,
-  updatePattern,
-} from '../api/data/patternData';
+import { createPattern, updatePattern } from '../api/data/patternData';
 
 const initialState = {
   name: '',
@@ -15,9 +11,8 @@ const initialState = {
   status: '',
 };
 
-export default function PatternForm({ obj, uid, setPatternCard }) {
+export default function PatternForm({ obj, uid }) {
   const [formInput, setFormInput] = useState(initialState);
-  const { key } = useParams();
   const history = useHistory();
 
   useEffect(() => {
@@ -53,12 +48,12 @@ export default function PatternForm({ obj, uid, setPatternCard }) {
     if (obj.patternfirebaseKey) {
       updatePattern(obj.patternfirebaseKey, formInput).then(() => {
         resetForm();
-        history.push('/');
+        history.goBack();
       });
     } else {
       createPattern({ ...formInput, uid }).then(() => {
         resetForm();
-        getSinglePattern(key).then(setPatternCard);
+        history.push('/');
       });
     }
   };
@@ -123,7 +118,6 @@ export default function PatternForm({ obj, uid, setPatternCard }) {
 }
 
 PatternForm.propTypes = {
-  setPatternCard: PropTypes.func.isRequired,
   obj: PropTypes.shape(PropTypes.obj),
   uid: PropTypes.string.isRequired,
 };

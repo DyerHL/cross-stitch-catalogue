@@ -72,6 +72,7 @@ export default function PatternDetails({ patternCard, uid }) {
                 key={thread.firebaseKey}
                 setThreads={setThreads}
                 thread={thread}
+                patternfirebaseKey={patternCard.patternfirebaseKey}
               />
             ))}
           </div>

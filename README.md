@@ -1,5 +1,5 @@
 # Cross-Stitch Catalogue
-Netlify Status
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ed951fbd-7842-4822-a295-45446d6c2fc3/deploy-status)](https://app.netlify.com/sites/cross-stitch-catalogue/deploys)
 
 Live Site
 

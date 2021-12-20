@@ -17,6 +17,10 @@ In their enthusiasm, needlework crafters often stockpile supplies without follow
 - The Shopping List view shows all threads that the user has indicated that they do not own.
 
 ## ScreenShots
+![image](https://user-images.githubusercontent.com/86806913/146847160-c9ea16a4-d94f-428b-9d92-9583da3f9278.png)
+![image](https://user-images.githubusercontent.com/86806913/146847230-3ec5aa24-c806-426b-a954-cf4541aac031.png)
+![image](https://user-images.githubusercontent.com/86806913/146847274-89ac5e7f-d03a-4efe-8d53-9090e01322ea.png)
+
 
 ## Video Demo
 Loom

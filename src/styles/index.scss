@@ -1,14 +1,44 @@
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
 @import 'globals';
 
-// .navbar{
-//   margin: 20px;
-// }
+/* Navbar */
+.navbar{
+  padding: 20px;
+}
+.nav-link {
+  color: black;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
 
 body {
   background-color: $favColor !important;
 }
+/* Pattern Details - Delete */
+.filter-container {
+  display: flex;
+  justify-content: center;
+}
 
+/* Home View */
+.home-patterns {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+/* Pattern Details Component */
+.pattern-details {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: none;
+}
 .details-view {
   display: flex;
   justify-content: center;
@@ -17,39 +47,127 @@ body {
 .details {
   max-width: 1000px;
 }
+.cardInfo {
+  margin: 10px;
+}
+.cardInfoDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.basicButton {
+  text-decoration: none;
+  color: black;
+  border: 1pt solid black;
+  background-color: $favColor ;
+  margin: 5px;
+  &:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(97, 150, 132);
+  }
+}
+
+/* Pattern Details - Thread List */
 .threads-list {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  background-color: greenyellow;
 }
-.pattern-details {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  background-color: goldenrod;
-}
-
 .thread-card {
   display: flex;
   justify-content: center;
   margin: 5px;
+  min-height: 28px;
+  border-width: 3px;
+  border-color: black;
 }
 .thread-card-body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
 }
 .thread-form-container {
   margin: 10px;
   padding: .5rem;
 }
-.delete-pattern-div {
-  display: flex;
-  justify-content: center;
-}
 .thread-buttons-container {
   position: absolute;
   right: 10px;
+}
+.thread-card-text {
+  position: absolute;
+  left: 10px;
+}
+.thread-card-txt {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.btn {
+  background: none;
+}
+.number {
+  margin-left: 20px;
+}
+
+/*Pattern Details - Add Thread Form*/
+.threadform {
+  padding: 10px;
+}
+
+/* Pattern Details - Delete */
+.delete-pattern-div {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+/* Shopping List */
+.shopping-card {
+  width: 20rem;
+  margin: 5px;
+  background: white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.shopping-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+
+
+
+.fill {
+  font-size: 20px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 13px 50px 13px;
+  outline: 0;
+  border: 1px solid black;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+    &::after {
+      content: "";
+      background-color: #ffe54c;
+      width: 100%;
+      z-index: -1;
+      position: absolute;
+      height: 100%;
+      top: 7px;
+      left: 7px;
+      transition: 0.2s;
+    }
+    &:hover:after {
+      top: 0px;
+      left: 0px;
+    }
 }

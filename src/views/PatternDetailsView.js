@@ -5,8 +5,8 @@ import PatternDetails from '../components/PatternDetails';
 import { getSinglePattern } from '../api/data/patternData';
 
 export default function PatternDetailsView({ uid }) {
-  const [patternCard, setPatternCard] = useState({});
   const { key } = useParams();
+  const [patternCard, setPatternCard] = useState({});
 
   useEffect(() => {
     let isMounted = true;
@@ -17,12 +17,16 @@ export default function PatternDetailsView({ uid }) {
       isMounted = false;
     };
   }, [key]);
-
   return (
-    <div className="details-view">
+    <>
       <br />
-      <PatternDetails patternCard={patternCard} uid={uid} />
-    </div>
+      <br />
+      <br />
+      <div className="details-view">
+        <br />
+        <PatternDetails patternCard={patternCard} uid={uid} />
+      </div>
+    </>
   );
 }
 

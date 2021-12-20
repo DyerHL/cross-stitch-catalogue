@@ -17,6 +17,9 @@ export default function EditThread({ uid }) {
       <br />
       <br />
       <br />
+      <br />
+      <br />
+      <br />
       <AddThreadForm obj={editItem} uid={uid} />
     </div>
   );

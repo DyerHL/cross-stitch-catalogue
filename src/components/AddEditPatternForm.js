@@ -48,7 +48,7 @@ export default function PatternForm({ obj, uid }) {
     if (obj.patternfirebaseKey) {
       updatePattern(obj.patternfirebaseKey, formInput).then(() => {
         resetForm();
-        history.push('/');
+        history.goBack();
       });
     } else {
       createPattern({ ...formInput, uid }).then(() => {
@@ -107,7 +107,7 @@ export default function PatternForm({ obj, uid }) {
                 <option value="Complete">Complete</option>
               </select>
             </div>
-            <button type="submit" className="btn btn-info">
+            <button className="basicButton" type="submit">
               {obj.patternfirebaseKey ? 'Update' : 'Post'}
             </button>
           </form>

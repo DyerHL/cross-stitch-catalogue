@@ -43,21 +43,29 @@ export default function PatternDetails({ patternCard, uid }) {
               style={{ width: '18rem', margin: '.5rem' }}
             />
           </div>
-          <div>
+          <div className="cardInfo">
             <h5 className="card-title">{patternCard.name}</h5>
-            <a
-              rel="noreferrer"
-              target="_blank"
-              href={patternCard.patternURL}
-              type="button"
-            >
-              Take me to the Pattern!
-            </a>
-            <Link to={`/edit/${patternCard.patternfirebaseKey}`} type="button">
-              {' '}
-              Edit Pattern Details{' '}
-            </Link>
-            <div>Pattern Status: {patternCard.status}</div>
+            <div className="cardInfoDetails">
+              <a
+                rel="noreferrer"
+                target="_blank"
+                href={patternCard.patternURL}
+                type="button"
+              >
+                <button className="basicButton" type="button">
+                  Take me to the Pattern!
+                </button>
+              </a>
+              <Link
+                to={`/edit/${patternCard.patternfirebaseKey}`}
+                type="button"
+              >
+                <button className="basicButton" type="button">
+                  Edit Pattern Details
+                </button>
+              </Link>
+              <div>Pattern Status: {patternCard.status}</div>
+            </div>
           </div>
         </div>
         <div>
@@ -67,6 +75,7 @@ export default function PatternDetails({ patternCard, uid }) {
                 key={thread.firebaseKey}
                 setThreads={setThreads}
                 thread={thread}
+                patternfirebaseKey={patternCard.patternfirebaseKey}
               />
             ))}
           </div>
@@ -81,7 +90,11 @@ export default function PatternDetails({ patternCard, uid }) {
           </div>
         </div>
         <div className="delete-pattern-div">
-          <button type="button" onClick={() => handleDelete('delete')}>
+          <button
+            className="basicButton"
+            type="button"
+            onClick={() => handleDelete('delete')}
+          >
             Delete Pattern from Catalogue
           </button>
         </div>

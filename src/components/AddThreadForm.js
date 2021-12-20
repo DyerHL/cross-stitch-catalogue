@@ -49,7 +49,7 @@ export default function AddThreadForm({
     if (obj.firebaseKey) {
       updateThread(obj.firebaseKey, formInput).then(() => {
         resetForm();
-        history.push('/');
+        history.goBack();
       });
     } else {
       createThread({ ...formInput, patternfirebaseKey, uid }).then(() => {
@@ -60,7 +60,7 @@ export default function AddThreadForm({
   };
 
   return (
-    <div className="card text-center">
+    <div className="card text-center threadform">
       <h5>{obj.firebaseKey ? 'Update This Thread' : 'Add A Thread'}</h5>
       <form onSubmit={handleSubmit}>
         <input
@@ -79,7 +79,7 @@ export default function AddThreadForm({
           required
           placeholder="# Skeins Needed"
         />
-        <button type="submit" className="btn btn-info">
+        <button type="submit" className="basicButton">
           {obj.firebaseKey ? 'Update' : 'Add'}
         </button>
       </form>
@@ -88,10 +88,10 @@ export default function AddThreadForm({
 }
 
 AddThreadForm.propTypes = {
+  setThreads: PropTypes.func.isRequired,
   patternfirebaseKey: PropTypes.string.isRequired,
   obj: PropTypes.shape(PropTypes.obj),
   uid: PropTypes.string.isRequired,
-  setThreads: PropTypes.func.isRequired,
 };
 
 AddThreadForm.defaultProps = {

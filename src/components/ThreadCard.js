@@ -1,15 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, useHistory } from 'react-router-dom';
-import { deleteThread, updateOwn } from '../api/data/threadData';
+import { Link } from 'react-router-dom';
+import {
+  deleteThread,
+  getThreadsByPattern,
+  updateOwn,
+} from '../api/data/threadData';
 
-export default function ThreadCard({ thread, setThreads }) {
-  const history = useHistory();
-
+export default function ThreadCard({ thread, setThreads, patternfirebaseKey }) {
   const handleClick = (method) => {
     if (method === 'delete') {
       deleteThread(thread.firebaseKey).then(() => {
-        history.push('/');
+        getThreadsByPattern(patternfirebaseKey).then(setThreads);
       });
     } else {
       updateOwn({ ...thread, own: true }).then(setThreads);
@@ -19,18 +21,25 @@ export default function ThreadCard({ thread, setThreads }) {
   return (
     <div className="thread-card">
       <div className="thread-card-body">
-        <div>Color: {thread.colorName}</div>
-        <div>{thread.numberNeeded} skeins needed</div>
+        <div className="thread-card-text">
+          <div className="thread-card-txt">
+            <div>Color: {thread.colorName}</div>
+            <div className="number">
+              {thread.numberNeeded}{' '}
+              {thread.numberNeeded === '1' ? 'skein' : 'skeins'} needed
+            </div>
+          </div>
+        </div>
         <div className="thread-buttons-container">
           {thread.own ? (
-            <button type="button" className="btn btn-light" disabled>
+            <button type="button" className="btn thread" disabled>
               <i className="fas fa-star" />
             </button>
           ) : (
             <button
               type="button"
               onClick={() => handleClick('own')}
-              className="btn btn-light"
+              className="btn thread"
             >
               {' '}
               <i className="far fa-star" />
@@ -39,17 +48,17 @@ export default function ThreadCard({ thread, setThreads }) {
           <Link
             type="button"
             to={`/editthread/${thread.firebaseKey}`}
-            className="btn btn-light"
+            className="btn thread"
           >
-            Edit
+            <i className="fas fa-edit" />
           </Link>
           <button
             onClick={() => handleClick('delete')}
             type="button"
             href="#"
-            className="btn btn-light"
+            className="btn thread"
           >
-            Delete
+            <i className="fas fa-trash-alt" />
           </button>
         </div>
       </div>
@@ -59,5 +68,6 @@ export default function ThreadCard({ thread, setThreads }) {
 
 ThreadCard.propTypes = {
   thread: PropTypes.shape(PropTypes.obj).isRequired,
+  patternfirebaseKey: PropTypes.string.isRequired,
   setThreads: PropTypes.func.isRequired,
 };

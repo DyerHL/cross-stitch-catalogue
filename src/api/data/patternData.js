@@ -62,6 +62,13 @@ const filterPattern = (status, uid) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getPatternName = (patternfirebaseKey) => new Promise((resolve, reject) => {
+  axios
+    .get(`${dbUrl}/patterns/${patternfirebaseKey}.json`)
+    .then((response) => resolve(Object.values(response.data.name)))
+    .catch(reject);
+});
+
 export {
   getPatterns,
   createPattern,
@@ -69,4 +76,5 @@ export {
   deletePattern,
   getSinglePattern,
   filterPattern,
+  getPatternName,
 };

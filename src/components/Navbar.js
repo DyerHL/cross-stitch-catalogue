@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom';
 import { signOutUser } from '../api/auth';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/js/src/collapse';
+import logoNoText from '../assets/logoNoText.png';
 
 export default function Navbar() {
   return (
     <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
-          Logo
+          <img src={logoNoText} alt="logo" style={{ width: '70px' }} />
         </Link>
         <button
           className="navbar-toggler"
@@ -25,16 +26,26 @@ export default function Navbar() {
         <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link to="/">Home</Link>
+              <Link className="nav-link" to="/">
+                Home
+              </Link>
             </li>
             <li className="nav-item">
-              <Link to="/addpattern">Add New Pattern</Link>
+              <Link className="nav-link" to="/addpattern">
+                Add New Pattern
+              </Link>
             </li>
             <li className="nav-item">
-              <Link to="/shoppinglist">Shopping List</Link>
+              <Link className="nav-link" to="/shoppinglist">
+                Shopping List
+              </Link>
             </li>
             <li className="nav-item">
-              <button onClick={signOutUser} type="button">
+              <button
+                onClick={signOutUser}
+                type="button"
+                className="basicButton"
+              >
                 Log Out
               </button>
             </li>

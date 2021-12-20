@@ -15,7 +15,9 @@ export default function ShoppingList({ uid }) {
       <br />
       <br />
       <br />
-      <div>
+      <br />
+      <br />
+      <div className="shopping-container">
         {threads.map((card) => (
           <ShoppingListCard key={card.firebaseKey} card={card} />
         ))}

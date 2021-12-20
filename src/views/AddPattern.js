@@ -8,6 +8,9 @@ export default function AddPattern({ uid, setPatternCard }) {
       <br />
       <br />
       <br />
+      <br />
+      <br />
+      <br />
       <PatternForm uid={uid} setPatternCard={setPatternCard} />
     </div>
   );

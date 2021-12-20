@@ -17,12 +17,16 @@ export default function PatternDetailsView({ uid }) {
       isMounted = false;
     };
   }, [key]);
-
   return (
-    <div>
+    <>
       <br />
-      <PatternDetails patternCard={patternCard} uid={uid} />
-    </div>
+      <br />
+      <br />
+      <div className="details-view">
+        <br />
+        <PatternDetails patternCard={patternCard} uid={uid} />
+      </div>
+    </>
   );
 }
 

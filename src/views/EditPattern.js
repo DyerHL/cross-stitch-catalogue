@@ -17,6 +17,9 @@ export default function EditPattern({ uid, setPatternCard }) {
       <br />
       <br />
       <br />
+      <br />
+      <br />
+      <br />
       <PatternForm obj={editItem} uid={uid} setPatternCard={setPatternCard} />
     </div>
   );

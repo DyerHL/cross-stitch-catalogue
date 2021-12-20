@@ -16,7 +16,7 @@ export default function ShoppingListCard({ card }) {
   }, []);
 
   return (
-    <div className="card">
+    <div className="shopping-card">
       <div className="card-body" name={name}>
         <div>Color Name: {card.colorName}</div>
         <div>#{card.numberNeeded} Needed</div>

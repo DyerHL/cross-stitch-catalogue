@@ -60,7 +60,7 @@ export default function AddThreadForm({
   };
 
   return (
-    <div className="card text-center">
+    <div className="card text-center threadform">
       <h5>{obj.firebaseKey ? 'Update This Thread' : 'Add A Thread'}</h5>
       <form onSubmit={handleSubmit}>
         <input
@@ -79,7 +79,7 @@ export default function AddThreadForm({
           required
           placeholder="# Skeins Needed"
         />
-        <button type="submit" className="btn btn-info">
+        <button type="submit" className="basicButton">
           {obj.firebaseKey ? 'Update' : 'Add'}
         </button>
       </form>

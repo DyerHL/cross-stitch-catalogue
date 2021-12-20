@@ -107,7 +107,7 @@ export default function PatternForm({ obj, uid }) {
                 <option value="Complete">Complete</option>
               </select>
             </div>
-            <button type="submit" className="btn btn-info">
+            <button className="basicButton" type="submit">
               {obj.patternfirebaseKey ? 'Update' : 'Post'}
             </button>
           </form>

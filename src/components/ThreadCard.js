@@ -19,39 +19,48 @@ export default function ThreadCard({ thread, setThreads, patternfirebaseKey }) {
   };
 
   return (
-    <div className="card">
-      <div className="card-body">
-        <div>Color: {thread.colorName}</div>
-        <div>{thread.numberNeeded} skeins needed</div>
-        {thread.own ? (
-          <button type="button" className="btn btn-light" disabled>
-            <i className="fas fa-star" />
-          </button>
-        ) : (
-          <button
+    <div className="thread-card">
+      <div className="thread-card-body">
+        <div className="thread-card-text">
+          <div className="thread-card-txt">
+            <div>Color: {thread.colorName}</div>
+            <div className="number">
+              {thread.numberNeeded}{' '}
+              {thread.numberNeeded === '1' ? 'skein' : 'skeins'} needed
+            </div>
+          </div>
+        </div>
+        <div className="thread-buttons-container">
+          {thread.own ? (
+            <button type="button" className="btn thread" disabled>
+              <i className="fas fa-star" />
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={() => handleClick('own')}
+              className="btn thread"
+            >
+              {' '}
+              <i className="far fa-star" />
+            </button>
+          )}
+          <Link
             type="button"
-            onClick={() => handleClick('own')}
-            className="btn btn-light"
+            to={`/editthread/${thread.firebaseKey}`}
+            className="btn thread"
           >
-            {' '}
-            <i className="far fa-star" />
+            <i className="fas fa-edit" />
+          </Link>
+          <button
+            onClick={() => handleClick('delete')}
+            type="button"
+            href="#"
+            className="btn thread"
+          >
+            <i className="fas fa-trash-alt" />
           </button>
-        )}
-        <Link
-          type="button"
-          to={`/editthread/${thread.firebaseKey}`}
-          className="btn btn-light"
-        >
-          Edit
-        </Link>
-        <button
-          onClick={() => handleClick('delete')}
-          type="button"
-          href="#"
-          className="btn btn-light"
-        >
-          Delete
-        </button>
+        </div>
       </div>
     </div>
   );

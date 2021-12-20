@@ -8,12 +8,10 @@ export default function HomePatternCard({ card }) {
       <img src={card.imageURL} className="card-img-top" alt="..." />
       <div className="card-body">
         <h5 className="card-title">{card.name}</h5>
-        <Link
-          type="button"
-          to={`/patterndetails/${card.patternfirebaseKey}`}
-          className="btn btn-primary"
-        >
-          Go To Pattern Details
+        <Link type="button" to={`/patterndetails/${card.patternfirebaseKey}`}>
+          <button type="button" className="basicButton">
+            Go To Pattern Details
+          </button>
         </Link>
       </div>
     </div>

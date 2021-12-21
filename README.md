@@ -23,7 +23,7 @@ In their enthusiasm, needlework crafters often stockpile supplies without follow
 
 
 ## Video Demo
-Loom
+https://www.loom.com/share/30fe4d6d8e5d4943954d90293d3c4606
 
 ## Relevant Links
 - [Wireframe](https://www.figma.com/file/wZXfT0LLw82RHrlMiVWPPV/Cross-stitch-catalogue?node-id=0%3A1)

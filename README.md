@@ -1,6 +1,8 @@
 # Cross-Stitch Catalogue
 [![Netlify Status](https://api.netlify.com/api/v1/badges/ed951fbd-7842-4822-a295-45446d6c2fc3/deploy-status)](https://app.netlify.com/sites/cross-stitch-catalogue/deploys)
 
+![crossStitchCatalogue](https://user-images.githubusercontent.com/86806913/153327981-1d0a5455-8588-4a69-9faf-72f5161e5482.png)
+
 [Live Site](https://cross-stitch-catalogue.netlify.app/)
 
 ## Overview
